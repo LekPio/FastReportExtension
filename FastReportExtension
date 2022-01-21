@@ -1,0 +1,21 @@
+unit FastReportExtension;
+
+interface
+
+uses frxClass,System.SysUtils;
+
+Function appFR_Report_Create(name:string):TfrxReport;
+
+implementation
+
+{FastReport Extension}
+Function appFR_Report_Create(name:string):TfrxReport;
+Begin
+  result := TfrxReport.Create(nil);
+  if name.Length<>0 then result.Name:=name;
+  if name.Length=0 then result.CreateUniqueName;
+  result.Clear;
+End;
+
+
+end.
